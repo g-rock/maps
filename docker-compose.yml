@@ -1,0 +1,9 @@
+version: '3'
+services:
+  notebook:
+    ports: 
+      - "8888:8888"
+    volumes:
+      - .:/home/src/maps
+    working_dir: /home/src/maps
+    image: gboeing/osmnx
