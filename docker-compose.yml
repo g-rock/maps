@@ -1,9 +1,11 @@
 version: '3'
 services:
-  notebook:
+  jupyterlab:
+    build: .
     ports: 
-      - "8888:8888"
+      - "8888:8888" #jupyterlab
+      - "8866:8866" #voila
     volumes:
-      - .:/home/src/maps
-    working_dir: /home/src/maps
-    image: gboeing/osmnx
+      - ./code:/home/src/code
+    working_dir: /home/src/code
+    command: bash -c "voila MapUI.ipynb"
